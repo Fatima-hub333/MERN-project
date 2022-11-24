@@ -6,12 +6,11 @@ import postRoutes from './routes/posts.js'
 
 const app = exppress();
 
-app.use('/posts', postRoutes);
-
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
+app.use('/posts', postRoutes);
 // https://www.mongodb.com/cloud/atlas
 const CONNECTION_URL = 'mongodb+srv://fatima:1212@cluster0.gxn5wto.mongodb.net/?retryWrites=true&w=majority';
 const PORT = process.env.PORT|| 5000;
